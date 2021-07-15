@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/share_rounded_corder_color"
+    android:padding="10dp"
+    android:layout_margin="10dp"
+    android:elevation="5dp">
+
+    <ImageView
+        android:id="@+id/im_profile"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/card_chart"/>
+
+    <TextView
+        android:id="@+id/tv_customer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/im_profile"
+        app:layout_constraintTop_toTopOf="@+id/im_profile"
+        tools:text="Seto Fabrianti"/>
+
+    <TextView
+        android:id="@+id/tv_client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_customer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_customer"
+        tools:text="Mandiri Bank" />
+
+    <TextView
+        android:id="@+id/tv_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_client"
+        app:layout_constraintTop_toTopOf="@+id/tv_client"
+        tools:text="777724422345" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

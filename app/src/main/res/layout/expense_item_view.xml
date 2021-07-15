@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/share_rounded_corder_color">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="@drawable/share_rounded_corder">
+
+        <ImageView
+            android:id="@+id/iv_expense"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_expense_date"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="28dp"
+            android:paddingRight="5dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/iv_expense"
+            app:layout_constraintTop_toBottomOf="@+id/iv_expense"
+            tools:text="15 de Julio, 2021" />
+
+        <TextView
+            android:id="@+id/tv_expense_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:paddingRight="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_expense_date"
+            app:layout_constraintTop_toBottomOf="@+id/tv_expense_date"
+            tools:text="$" />
+
+        <TextView
+            android:id="@+id/tv_expense_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tv_expense_symbol"
+            app:layout_constraintTop_toTopOf="@+id/tv_expense_symbol"
+            tools:text="40.000" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
