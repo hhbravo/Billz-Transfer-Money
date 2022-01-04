@@ -5,47 +5,23 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import com.hans.transfermoney.R
 import com.hans.transfermoney.core.Result
-import com.hans.transfermoney.data.remote.expense.ExpenseDataSource
-import com.hans.transfermoney.data.remote.expense.RetrofitClient
-import com.hans.transfermoney.data.remote.transaction.TransactionDataSource
 import com.hans.transfermoney.databinding.FragmentBillBinding
-import com.hans.transfermoney.domain.expense.ExpenseRepoImpl
-import com.hans.transfermoney.domain.transaction.TransactionRepoImpl
 import com.hans.transfermoney.presentation.expense.ExpenseViewModel
-import com.hans.transfermoney.presentation.expense.ExpenseViewModelFactory
 import com.hans.transfermoney.presentation.transaction.TransactionViewModel
-import com.hans.transfermoney.presentation.transaction.TransactionViewModelFactory
 import com.hans.transfermoney.ui.billz.adapter.ExpenseAdapter
 import com.hans.transfermoney.ui.billz.adapter.TransactionAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class BillFragment : Fragment(R.layout.fragment_bill) {
 
     private lateinit var binding: FragmentBillBinding
-
-    private val viewModelExpense by viewModels<ExpenseViewModel> {
-        ExpenseViewModelFactory(
-            ExpenseRepoImpl(
-                ExpenseDataSource(
-                    RetrofitClient.webservice
-                )
-            )
-        )
-    }
-
-    private val viewModelTransaction by viewModels<TransactionViewModel> {
-        TransactionViewModelFactory(
-            TransactionRepoImpl(
-                TransactionDataSource(
-                    RetrofitClient.webservice
-                )
-            )
-        )
-    }
+    private val viewModelTransaction by activityViewModels<TransactionViewModel>()
+    private val viewModelExpense by activityViewModels<ExpenseViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

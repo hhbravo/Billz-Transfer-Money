@@ -1,14 +1,17 @@
 package com.hans.transfermoney.presentation.transaction
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
 import com.hans.transfermoney.core.Result
 import com.hans.transfermoney.domain.transaction.TransactionRepo
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 import kotlin.Exception
 
-class TransactionViewModel(private val repo: TransactionRepo): ViewModel() {
+@HiltViewModel
+class TransactionViewModel @Inject constructor(
+    private val repo: TransactionRepo): ViewModel() {
 
     fun transaction() = liveData(Dispatchers.IO) {
         emit(Result.Loading())
@@ -19,6 +22,7 @@ class TransactionViewModel(private val repo: TransactionRepo): ViewModel() {
         }
     }
 }
+/*
 
 class TransactionViewModelFactory(private val repo: TransactionRepo): ViewModelProvider.Factory {
 
@@ -26,4 +30,4 @@ class TransactionViewModelFactory(private val repo: TransactionRepo): ViewModelP
         return modelClass.getConstructor(TransactionRepo::class.java).newInstance(repo)
     }
 
-}
+}*/
